@@ -11532,17 +11532,23 @@ var $;
                     .map(group => [...group].map(digit => this.digit_rows(digit)[row]).join(' '))
                     .join('   ')).join('\n');
             }
-            day_submit(_next) {
+            day_submit(next) {
+                if (next === undefined)
+                    return null;
                 if (this.day_valid())
                     this.step(2);
                 return null;
             }
-            month_submit(_next) {
+            month_submit(next) {
+                if (next === undefined)
+                    return null;
                 if (this.month_valid())
                     this.step(3);
                 return null;
             }
-            year_submit(_next) {
+            year_submit(next) {
+                if (next === undefined)
+                    return null;
                 if (!this.date_valid())
                     return null;
                 this.step(4);
@@ -11552,7 +11558,9 @@ var $;
                 console.log(this.star_art());
                 return null;
             }
-            restart_click(_next) {
+            restart_click(next) {
+                if (next === undefined)
+                    return null;
                 this.day(Number.NaN);
                 this.month(Number.NaN);
                 this.year(Number.NaN);
@@ -11564,16 +11572,16 @@ var $;
             $mol_mem
         ], $bog_birthdaycase_app.prototype, "content", null);
         __decorate([
-            $mol_action
+            $mol_mem
         ], $bog_birthdaycase_app.prototype, "day_submit", null);
         __decorate([
-            $mol_action
+            $mol_mem
         ], $bog_birthdaycase_app.prototype, "month_submit", null);
         __decorate([
-            $mol_action
+            $mol_mem
         ], $bog_birthdaycase_app.prototype, "year_submit", null);
         __decorate([
-            $mol_action
+            $mol_mem
         ], $bog_birthdaycase_app.prototype, "restart_click", null);
         $$.$bog_birthdaycase_app = $bog_birthdaycase_app;
     })($$ = $.$$ || ($.$$ = {}));
@@ -15246,16 +15254,16 @@ var $;
 var $;
 (function ($_1) {
     $mol_test({
-        'walk through birthday form'($) {
+        'walk through birthday form with buttons'($) {
             const app = $bog_birthdaycase_app.make({ $ });
             app.day(1);
-            app.day_submit();
+            app.Day_button().click(new Event('click'));
             $mol_assert_equal(app.step(), 2);
             app.month(2);
-            app.month_submit();
+            app.Month_button().click(new Event('click'));
             $mol_assert_equal(app.step(), 3);
             app.year(2003);
-            app.year_submit();
+            app.Year_button().click(new Event('click'));
             $mol_assert_equal(app.step(), 4);
             $mol_assert_ok(app.result_text().includes('суббота'));
             $mol_assert_equal(app.content()[0], app.Result_info());

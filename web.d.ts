@@ -5097,10 +5097,10 @@ declare namespace $.$$ {
         age_text(): string;
         digit_rows(digit: string): string[];
         star_art(): string;
-        day_submit(_next?: Event): null;
-        month_submit(_next?: Event): null;
-        year_submit(_next?: Event): null;
-        restart_click(_next?: Event): null;
+        day_submit(next?: Event): null;
+        month_submit(next?: Event): null;
+        year_submit(next?: Event): null;
+        restart_click(next?: Event): null;
     }
 }
 
