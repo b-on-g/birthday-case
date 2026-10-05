@@ -3,17 +3,10 @@ namespace $.$$ {
 
 		override content() {
 			switch( this.step() ) {
-				case 1: return [ this.Day_title(), this.Day_input(), this.Day_button() ]
-				case 2: return [ this.Month_title(), this.Month_input(), this.Month_button() ]
-				case 3: return [ this.Year_title(), this.Year_input(), this.Year_button() ]
-				default: return [
-					this.Result_info(),
-					this.Leap_info(),
-					this.Age_info(),
-					this.Display_title(),
-					this.Star_display(),
-					this.Restart_button(),
-				]
+				case 1: return this.day_step()
+				case 2: return this.month_step()
+				case 3: return this.year_step()
+				default: return this.result_step()
 			}
 		}
 
