@@ -3,16 +3,16 @@ namespace $.$$ {
 
 		override content() {
 			switch( this.step() ) {
-				case 1: return [ this.Day_title(), this.Day_input(), this.Day_next() ]
-				case 2: return [ this.Month_title(), this.Month_input(), this.Month_next() ]
-				case 3: return [ this.Year_title(), this.Year_input(), this.Year_next() ]
+				case 1: return [ this.Day_title(), this.Day_input(), this.Day_button() ]
+				case 2: return [ this.Month_title(), this.Month_input(), this.Month_button() ]
+				case 3: return [ this.Year_title(), this.Year_input(), this.Year_button() ]
 				default: return [
-					this.Result_text(),
-					this.Leap_text(),
-					this.Age_text(),
+					this.Result_info(),
+					this.Leap_info(),
+					this.Age_info(),
 					this.Display_title(),
 					this.Star_display(),
-					this.Restart(),
+					this.Restart_button(),
 				]
 			}
 		}
@@ -131,19 +131,19 @@ namespace $.$$ {
 		}
 
 		@ $mol_action
-		override day_next() {
+		override day_submit() {
 			if( this.day_valid() ) this.step( 2 )
 			return null
 		}
 
 		@ $mol_action
-		override month_next() {
+		override month_submit() {
 			if( this.month_valid() ) this.step( 3 )
 			return null
 		}
 
 		@ $mol_action
-		override year_next() {
+		override year_submit() {
 			if( !this.date_valid() ) return null
 			this.step( 4 )
 			console.log( this.result_text() )
@@ -154,7 +154,7 @@ namespace $.$$ {
 		}
 
 		@ $mol_action
-		override restart() {
+		override restart_click() {
 			this.day( Number.NaN )
 			this.month( Number.NaN )
 			this.year( Number.NaN )
