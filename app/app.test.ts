@@ -5,18 +5,18 @@ namespace $ {
 			const app = $bog_birthdaycase_app.make({ $ })
 
 			app.day( 1 )
-			app.day_next()
+			app.day_submit()
 			$mol_assert_equal( app.step(), 2 )
 
 			app.month( 2 )
-			app.month_next()
+			app.month_submit()
 			$mol_assert_equal( app.step(), 3 )
 
 			app.year( 2003 )
-			app.year_next()
+			app.year_submit()
 			$mol_assert_equal( app.step(), 4 )
 			$mol_assert_ok( app.result_text().includes( 'суббота' ) )
-			$mol_assert_equal( app.content()[ 0 ], app.Result_text() )
+			$mol_assert_equal( app.content()[ 0 ], app.Result_info() )
 		},
 
 		'validate leap day'( $ ) {
