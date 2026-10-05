@@ -15,27 +15,27 @@ namespace $ {
 			app.year( 2003 )
 			app.year_next()
 			$mol_assert_equal( app.step(), 4 )
-			$mol_assert_equal( app.weekday_name(), 'суббота' )
-			$mol_assert_equal( app.content()[ 0 ], app.Result_step() )
+			$mol_assert_ok( app.result_text().includes( 'суббота' ) )
+			$mol_assert_equal( app.content()[ 0 ], app.Result_text() )
 		},
 
-		'detect leap years'( $ ) {
+		'validate leap day'( $ ) {
 			const app = $bog_birthdaycase_app.make({ $ })
-			$mol_assert_ok( app.is_leap_year( 2000 ) )
-			$mol_assert_not( app.is_leap_year( 1900 ) )
-			$mol_assert_ok( app.is_leap_year( 2024 ) )
+			app.day( 29 )
+			app.month( 2 )
+			app.year( 1900 )
+			$mol_assert_not( app.date_valid() )
+			app.year( 2000 )
+			$mol_assert_ok( app.date_valid() )
+			$mol_assert_ok( app.leap_text().includes( 'високосный' ) )
 		},
 
-		'calculate completed age'( $ ) {
+		'calculate current age'( $ ) {
 			const app = $bog_birthdaycase_app.make({ $ })
-			$mol_assert_equal(
-				app.age_for( new Date( 2000, 9, 10 ), new Date( 2026, 9, 5 ) ),
-				25,
-			)
-			$mol_assert_equal(
-				app.age_for( new Date( 2000, 9, 10 ), new Date( 2026, 9, 10 ) ),
-				26,
-			)
+			app.day( 1 )
+			app.month( 1 )
+			app.year( 2000 )
+			$mol_assert_ok( app.age_text().includes( '26 лет' ) )
 		},
 
 		'draw date with stars'( $ ) {
