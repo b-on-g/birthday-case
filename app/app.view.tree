@@ -18,53 +18,57 @@ $bog_birthdaycase_app $mol_page
 	year_submit? null
 	restart_click? null
 
-	Day_title $mol_text
-		text @ \Введите день рождения
-	Day_input $mol_number
-		value? <=> day? +NaN
-		precision 1
-		value_min 1
-		value_max 31
-	Day_button $mol_button_major
-		title @ \Далее
-		enabled <= day_valid
-		click? <=> day_submit? null
+	day_step /
+		<= Day_title $mol_text
+			text @ \Введите день рождения
+		<= Day_input $mol_number
+			value? <=> day? +NaN
+			precision 1
+			value_min 1
+			value_max 31
+		<= Day_button $mol_button_major
+			title @ \Далее
+			enabled <= day_valid
+			click? <=> day_submit? null
 
-	Month_title $mol_text
-		text @ \Введите месяц рождения
-	Month_input $mol_number
-		value? <=> month? +NaN
-		precision 1
-		value_min 1
-		value_max 12
-	Month_button $mol_button_major
-		title @ \Далее
-		enabled <= month_valid
-		click? <=> month_submit? null
+	month_step /
+		<= Month_title $mol_text
+			text @ \Введите месяц рождения
+		<= Month_input $mol_number
+			value? <=> month? +NaN
+			precision 1
+			value_min 1
+			value_max 12
+		<= Month_button $mol_button_major
+			title @ \Далее
+			enabled <= month_valid
+			click? <=> month_submit? null
 
-	Year_title $mol_text
-		text @ \Введите год рождения
-	Year_input $mol_number
-		value? <=> year? +NaN
-		precision 1
-		value_min 1
-		value_max <= year_max
-	Year_button $mol_button_major
-		title @ \Показать результат
-		enabled <= date_valid
-		click? <=> year_submit? null
+	year_step /
+		<= Year_title $mol_text
+			text @ \Введите год рождения
+		<= Year_input $mol_number
+			value? <=> year? +NaN
+			precision 1
+			value_min 1
+			value_max <= year_max
+		<= Year_button $mol_button_major
+			title @ \Показать результат
+			enabled <= date_valid
+			click? <=> year_submit? null
 
-	Result_info $mol_text
-		text <= result_text \
-	Leap_info $mol_text
-		text <= leap_text \
-	Age_info $mol_text
-		text <= age_text \
-	Display_title $mol_text
-		text @ \Дата рождения на электронном табло
-	Star_display $mol_textarea
-		value <= star_art \
-		enabled false
-	Restart_button $mol_button_minor
-		title @ \Ввести другую дату
-		click? <=> restart_click? null
+	result_step /
+		<= Result_info $mol_text
+			text <= result_text \
+		<= Leap_info $mol_text
+			text <= leap_text \
+		<= Age_info $mol_text
+			text <= age_text \
+		<= Display_title $mol_text
+			text @ \Дата рождения на электронном табло
+		<= Star_display $mol_textarea
+			value <= star_art \
+			enabled false
+		<= Restart_button $mol_button_minor
+			title @ \Ввести другую дату
+			click? <=> restart_click? null
