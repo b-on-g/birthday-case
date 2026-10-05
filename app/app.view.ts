@@ -1,20 +1,5 @@
 namespace $.$$ {
 	export class $bog_birthdaycase_app extends $.$bog_birthdaycase_app {
-		@$mol_mem
-		override content() {
-			switch( this.step() ) {
-				case 1: return this.day_step()
-				case 2: return this.month_step()
-				case 3: return this.year_step()
-				default: return this.result_step()
-			}
-		}
-		override day_valid() {
-			return Number.isInteger( this.day() ) && this.day() >= 1 && this.day() <= 31
-		}
-		override month_valid() {
-			return Number.isInteger( this.month() ) && this.month() >= 1 && this.month() <= 12
-		}
 		override year_max() {
 			return new Date().getFullYear()
 		}
@@ -24,7 +9,8 @@ namespace $.$$ {
 			return date
 		}
 		override date_valid() {
-			if( !this.day_valid() || !this.month_valid() ) return false
+			if( !Number.isInteger( this.day() ) || this.day() < 1 || this.day() > 31 ) return false
+			if( !Number.isInteger( this.month() ) || this.month() < 1 || this.month() > 12 ) return false
 			if( !Number.isInteger( this.year() ) || this.year() < 1 || this.year() > this.year_max() ) return false
 			const date = this.birth_date()
 			if( date.getFullYear() !== this.year() ) return false
@@ -73,14 +59,17 @@ namespace $.$$ {
 			const year = String( this.year() ).padStart( 4, '0' )
 			return `${ day } ${ month } ${ year }`
 		}
-		override result_text() {
-			return `Дата рождения: ${ this.date_text() }. День недели: ${ this.weekday_name() }.`
+		override weekday_text() {
+			if( !this.date_valid() ) return 'День недели: —'
+			return `День недели: ${ this.weekday_name() }`
 		}
 		override leap_text() {
-			return `${ this.year() } год — ${ this.is_leap_year() ? 'високосный' : 'невисокосный' }.`
+			if( !this.date_valid() ) return 'Високосный год: —'
+			return `Високосный год: ${ this.is_leap_year() ? 'да' : 'нет' }`
 		}
 		override age_text() {
-			return `Сейчас пользователю ${ this.age() } ${ this.age_word() }.`
+			if( !this.date_valid() ) return 'Возраст: —'
+			return `Возраст: ${ this.age() } ${ this.age_word() }`
 		}
 		digit_rows( digit: string ) {
 			const rows: Record< string, string[] > = {
@@ -98,42 +87,21 @@ namespace $.$$ {
 			return rows[ digit ] ?? [ '   ', '   ', '   ', '   ', '   ' ]
 		}
 		override star_art() {
+			if( !this.date_valid() ) return 'Введите корректную дату'
 			const groups = this.date_text().split( ' ' )
 			return Array.from({ length: 5 }, ( _, row ) => groups
 				.map( group => [ ...group ].map( digit => this.digit_rows( digit )[ row ] ).join( ' ' ) )
 				.join( '   ' )
 			).join( '\n' )
 		}
-		@$mol_mem
-		override day_submit( next?: Event ) {
-			if( next === undefined ) return null
-			if( this.day_valid() ) this.step( 2 )
-			return null
-		}
-		@$mol_mem
-		override month_submit( next?: Event ) {
-			if( next === undefined ) return null
-			if( this.month_valid() ) this.step( 3 )
-			return null
-		}
-		@$mol_mem
-		override year_submit( next?: Event ) {
-			if( next === undefined ) return null
-			if( !this.date_valid() ) return null
-			this.step( 4 )
-			console.log( this.result_text() )
+		@$mol_action
+		override show_result( next?: Event ) {
+			if( next === undefined || !this.date_valid() ) return null
+			console.log( `Дата рождения: ${ this.date_text() }` )
+			console.log( this.weekday_text() )
 			console.log( this.leap_text() )
 			console.log( this.age_text() )
 			console.log( this.star_art() )
-			return null
-		}
-		@$mol_mem
-		override restart_click( next?: Event ) {
-			if( next === undefined ) return null
-			this.day( Number.NaN )
-			this.month( Number.NaN )
-			this.year( Number.NaN )
-			this.step( 1 )
 			return null
 		}
 	}
