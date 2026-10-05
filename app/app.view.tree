@@ -13,10 +13,10 @@ $bog_birthdaycase_app $mol_page
 	leap_text \
 	age_text \
 	star_art \
-	day_next? null
-	month_next? null
-	year_next? null
-	restart? null
+	day_submit? null
+	month_submit? null
+	year_submit? null
+	restart_click? null
 
 	Day_title $mol_text
 		text @ \Введите день рождения
@@ -25,10 +25,10 @@ $bog_birthdaycase_app $mol_page
 		precision 1
 		value_min 1
 		value_max 31
-	Day_next $mol_button_major
+	Day_button $mol_button_major
 		title @ \Далее
 		enabled <= day_valid
-		click? <=> day_next? null
+		click? <=> day_submit? null
 
 	Month_title $mol_text
 		text @ \Введите месяц рождения
@@ -37,10 +37,10 @@ $bog_birthdaycase_app $mol_page
 		precision 1
 		value_min 1
 		value_max 12
-	Month_next $mol_button_major
+	Month_button $mol_button_major
 		title @ \Далее
 		enabled <= month_valid
-		click? <=> month_next? null
+		click? <=> month_submit? null
 
 	Year_title $mol_text
 		text @ \Введите год рождения
@@ -49,22 +49,22 @@ $bog_birthdaycase_app $mol_page
 		precision 1
 		value_min 1
 		value_max <= year_max
-	Year_next $mol_button_major
+	Year_button $mol_button_major
 		title @ \Показать результат
 		enabled <= date_valid
-		click? <=> year_next? null
+		click? <=> year_submit? null
 
-	Result_text $mol_text
+	Result_info $mol_text
 		text <= result_text \
-	Leap_text $mol_text
+	Leap_info $mol_text
 		text <= leap_text \
-	Age_text $mol_text
+	Age_info $mol_text
 		text <= age_text \
 	Display_title $mol_text
 		text @ \Дата рождения на электронном табло
 	Star_display $mol_textarea
 		value <= star_art \
 		enabled false
-	Restart $mol_button_minor
+	Restart_button $mol_button_minor
 		title @ \Ввести другую дату
-		click? <=> restart? null
+		click? <=> restart_click? null
