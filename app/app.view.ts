@@ -3,22 +3,29 @@ namespace $.$$ {
 
 		override content() {
 			switch( this.step() ) {
-				case 1: return [ this.Day_step() ]
-				case 2: return [ this.Month_step() ]
-				case 3: return [ this.Year_step() ]
-				default: return [ this.Result_step() ]
+				case 1: return [ this.Day_title(), this.Day_input(), this.Day_next() ]
+				case 2: return [ this.Month_title(), this.Month_input(), this.Month_next() ]
+				case 3: return [ this.Year_title(), this.Year_input(), this.Year_next() ]
+				default: return [
+					this.Result_text(),
+					this.Leap_text(),
+					this.Age_text(),
+					this.Display_title(),
+					this.Star_display(),
+					this.Restart(),
+				]
 			}
 		}
 
-		day_valid() {
+		override day_valid() {
 			return Number.isInteger( this.day() ) && this.day() >= 1 && this.day() <= 31
 		}
 
-		month_valid() {
+		override month_valid() {
 			return Number.isInteger( this.month() ) && this.month() >= 1 && this.month() <= 12
 		}
 
-		year_max() {
+		override year_max() {
 			return new Date().getFullYear()
 		}
 
@@ -28,7 +35,7 @@ namespace $.$$ {
 			return date
 		}
 
-		date_valid() {
+		override date_valid() {
 			if( !this.day_valid() || !this.month_valid() ) return false
 			if( !Number.isInteger( this.year() ) || this.year() < 1 || this.year() > this.year_max() ) return false
 
@@ -87,15 +94,15 @@ namespace $.$$ {
 			return `${ day } ${ month } ${ year }`
 		}
 
-		result_text() {
+		override result_text() {
 			return `Дата рождения: ${ this.date_text() }. День недели: ${ this.weekday_name() }.`
 		}
 
-		leap_text() {
+		override leap_text() {
 			return `${ this.year() } год — ${ this.is_leap_year() ? 'високосный' : 'невисокосный' }.`
 		}
 
-		age_text() {
+		override age_text() {
 			return `Сейчас пользователю ${ this.age() } ${ this.age_word() }.`
 		}
 
@@ -115,7 +122,7 @@ namespace $.$$ {
 			return rows[ digit ] ?? [ '   ', '   ', '   ', '   ', '   ' ]
 		}
 
-		star_art() {
+		override star_art() {
 			const groups = this.date_text().split( ' ' )
 			return Array.from({ length: 5 }, ( _, row ) => groups
 				.map( group => [ ...group ].map( digit => this.digit_rows( digit )[ row ] ).join( ' ' ) )
