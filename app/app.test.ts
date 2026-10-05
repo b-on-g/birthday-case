@@ -1,19 +1,16 @@
 namespace $ {
 	$mol_test({
 
-		'walk through birthday form'( $ ) {
+		'walk through birthday form with buttons'( $ ) {
 			const app = $bog_birthdaycase_app.make({ $ })
-
 			app.day( 1 )
-			app.day_submit()
+			app.Day_button().click( new Event( 'click' ) )
 			$mol_assert_equal( app.step(), 2 )
-
 			app.month( 2 )
-			app.month_submit()
+			app.Month_button().click( new Event( 'click' ) )
 			$mol_assert_equal( app.step(), 3 )
-
 			app.year( 2003 )
-			app.year_submit()
+			app.Year_button().click( new Event( 'click' ) )
 			$mol_assert_equal( app.step(), 4 )
 			$mol_assert_ok( app.result_text().includes( 'суббота' ) )
 			$mol_assert_equal( app.content()[ 0 ], app.Result_info() )
