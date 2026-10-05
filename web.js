@@ -10847,9 +10847,6 @@ var $;
 
 ;
 	($.$bog_birthdaycase_app) = class $bog_birthdaycase_app extends ($.$mol_page) {
-		content(){
-			return [];
-		}
 		Day_title(){
 			const obj = new this.$.$mol_text();
 			(obj.text) = () => ((this.$.$mol_locale.text("$bog_birthdaycase_app_Day_title_text")));
@@ -10865,17 +10862,6 @@ var $;
 			(obj.precision) = () => (1);
 			(obj.value_min) = () => (1);
 			(obj.value_max) = () => (31);
-			return obj;
-		}
-		day_submit(next){
-			if(next !== undefined) return next;
-			return null;
-		}
-		Day_button(){
-			const obj = new this.$.$mol_button_major();
-			(obj.title) = () => ((this.$.$mol_locale.text("$bog_birthdaycase_app_Day_button_title")));
-			(obj.enabled) = () => ((this.day_valid()));
-			(obj.click) = (next) => ((this.day_submit(next)));
 			return obj;
 		}
 		Month_title(){
@@ -10895,17 +10881,6 @@ var $;
 			(obj.value_max) = () => (12);
 			return obj;
 		}
-		month_submit(next){
-			if(next !== undefined) return next;
-			return null;
-		}
-		Month_button(){
-			const obj = new this.$.$mol_button_major();
-			(obj.title) = () => ((this.$.$mol_locale.text("$bog_birthdaycase_app_Month_button_title")));
-			(obj.enabled) = () => ((this.month_valid()));
-			(obj.click) = (next) => ((this.month_submit(next)));
-			return obj;
-		}
 		Year_title(){
 			const obj = new this.$.$mol_text();
 			(obj.text) = () => ((this.$.$mol_locale.text("$bog_birthdaycase_app_Year_title_text")));
@@ -10923,23 +10898,23 @@ var $;
 			(obj.value_max) = () => ((this.year_max()));
 			return obj;
 		}
-		year_submit(next){
+		show_result(next){
 			if(next !== undefined) return next;
 			return null;
 		}
-		Year_button(){
+		Show_button(){
 			const obj = new this.$.$mol_button_major();
-			(obj.title) = () => ((this.$.$mol_locale.text("$bog_birthdaycase_app_Year_button_title")));
+			(obj.title) = () => ((this.$.$mol_locale.text("$bog_birthdaycase_app_Show_button_title")));
 			(obj.enabled) = () => ((this.date_valid()));
-			(obj.click) = (next) => ((this.year_submit(next)));
+			(obj.click) = (next) => ((this.show_result(next)));
 			return obj;
 		}
-		result_text(){
+		weekday_text(){
 			return "";
 		}
-		Result_info(){
+		Weekday_info(){
 			const obj = new this.$.$mol_text();
-			(obj.text) = () => ((this.result_text()));
+			(obj.text) = () => ((this.weekday_text()));
 			return obj;
 		}
 		leap_text(){
@@ -10972,31 +10947,8 @@ var $;
 			(obj.enabled) = () => (false);
 			return obj;
 		}
-		restart_click(next){
-			if(next !== undefined) return next;
-			return null;
-		}
-		Restart_button(){
-			const obj = new this.$.$mol_button_minor();
-			(obj.title) = () => ((this.$.$mol_locale.text("$bog_birthdaycase_app_Restart_button_title")));
-			(obj.click) = (next) => ((this.restart_click(next)));
-			return obj;
-		}
 		title(){
 			return (this.$.$mol_locale.text("$bog_birthdaycase_app_title"));
-		}
-		body(){
-			return (this.content());
-		}
-		step(next){
-			if(next !== undefined) return next;
-			return 1;
-		}
-		day_valid(){
-			return false;
-		}
-		month_valid(){
-			return false;
 		}
 		year_max(){
 			return 0;
@@ -11004,61 +10956,39 @@ var $;
 		date_valid(){
 			return false;
 		}
-		day_step(){
+		body(){
 			return [
 				(this.Day_title()), 
 				(this.Day_input()), 
-				(this.Day_button())
-			];
-		}
-		month_step(){
-			return [
 				(this.Month_title()), 
 				(this.Month_input()), 
-				(this.Month_button())
-			];
-		}
-		year_step(){
-			return [
 				(this.Year_title()), 
 				(this.Year_input()), 
-				(this.Year_button())
-			];
-		}
-		result_step(){
-			return [
-				(this.Result_info()), 
+				(this.Show_button()), 
+				(this.Weekday_info()), 
 				(this.Leap_info()), 
 				(this.Age_info()), 
 				(this.Display_title()), 
-				(this.Star_display()), 
-				(this.Restart_button())
+				(this.Star_display())
 			];
 		}
 	};
 	($mol_mem(($.$bog_birthdaycase_app.prototype), "Day_title"));
 	($mol_mem(($.$bog_birthdaycase_app.prototype), "day"));
 	($mol_mem(($.$bog_birthdaycase_app.prototype), "Day_input"));
-	($mol_mem(($.$bog_birthdaycase_app.prototype), "day_submit"));
-	($mol_mem(($.$bog_birthdaycase_app.prototype), "Day_button"));
 	($mol_mem(($.$bog_birthdaycase_app.prototype), "Month_title"));
 	($mol_mem(($.$bog_birthdaycase_app.prototype), "month"));
 	($mol_mem(($.$bog_birthdaycase_app.prototype), "Month_input"));
-	($mol_mem(($.$bog_birthdaycase_app.prototype), "month_submit"));
-	($mol_mem(($.$bog_birthdaycase_app.prototype), "Month_button"));
 	($mol_mem(($.$bog_birthdaycase_app.prototype), "Year_title"));
 	($mol_mem(($.$bog_birthdaycase_app.prototype), "year"));
 	($mol_mem(($.$bog_birthdaycase_app.prototype), "Year_input"));
-	($mol_mem(($.$bog_birthdaycase_app.prototype), "year_submit"));
-	($mol_mem(($.$bog_birthdaycase_app.prototype), "Year_button"));
-	($mol_mem(($.$bog_birthdaycase_app.prototype), "Result_info"));
+	($mol_mem(($.$bog_birthdaycase_app.prototype), "show_result"));
+	($mol_mem(($.$bog_birthdaycase_app.prototype), "Show_button"));
+	($mol_mem(($.$bog_birthdaycase_app.prototype), "Weekday_info"));
 	($mol_mem(($.$bog_birthdaycase_app.prototype), "Leap_info"));
 	($mol_mem(($.$bog_birthdaycase_app.prototype), "Age_info"));
 	($mol_mem(($.$bog_birthdaycase_app.prototype), "Display_title"));
 	($mol_mem(($.$bog_birthdaycase_app.prototype), "Star_display"));
-	($mol_mem(($.$bog_birthdaycase_app.prototype), "restart_click"));
-	($mol_mem(($.$bog_birthdaycase_app.prototype), "Restart_button"));
-	($mol_mem(($.$bog_birthdaycase_app.prototype), "step"));
 
 
 ;
@@ -11072,20 +11002,6 @@ var $;
     var $$;
     (function ($$) {
         class $bog_birthdaycase_app extends $.$bog_birthdaycase_app {
-            content() {
-                switch (this.step()) {
-                    case 1: return this.day_step();
-                    case 2: return this.month_step();
-                    case 3: return this.year_step();
-                    default: return this.result_step();
-                }
-            }
-            day_valid() {
-                return Number.isInteger(this.day()) && this.day() >= 1 && this.day() <= 31;
-            }
-            month_valid() {
-                return Number.isInteger(this.month()) && this.month() >= 1 && this.month() <= 12;
-            }
             year_max() {
                 return new Date().getFullYear();
             }
@@ -11095,7 +11011,9 @@ var $;
                 return date;
             }
             date_valid() {
-                if (!this.day_valid() || !this.month_valid())
+                if (!Number.isInteger(this.day()) || this.day() < 1 || this.day() > 31)
+                    return false;
+                if (!Number.isInteger(this.month()) || this.month() < 1 || this.month() > 12)
                     return false;
                 if (!Number.isInteger(this.year()) || this.year() < 1 || this.year() > this.year_max())
                     return false;
@@ -11153,14 +11071,20 @@ var $;
                 const year = String(this.year()).padStart(4, '0');
                 return `${day} ${month} ${year}`;
             }
-            result_text() {
-                return `Дата рождения: ${this.date_text()}. День недели: ${this.weekday_name()}.`;
+            weekday_text() {
+                if (!this.date_valid())
+                    return 'День недели: —';
+                return `День недели: ${this.weekday_name()}`;
             }
             leap_text() {
-                return `${this.year()} год — ${this.is_leap_year() ? 'високосный' : 'невисокосный'}.`;
+                if (!this.date_valid())
+                    return 'Високосный год: —';
+                return `Високосный год: ${this.is_leap_year() ? 'да' : 'нет'}`;
             }
             age_text() {
-                return `Сейчас пользователю ${this.age()} ${this.age_word()}.`;
+                if (!this.date_valid())
+                    return 'Возраст: —';
+                return `Возраст: ${this.age()} ${this.age_word()}`;
             }
             digit_rows(digit) {
                 const rows = {
@@ -11178,62 +11102,27 @@ var $;
                 return rows[digit] ?? ['   ', '   ', '   ', '   ', '   '];
             }
             star_art() {
+                if (!this.date_valid())
+                    return 'Введите корректную дату';
                 const groups = this.date_text().split(' ');
                 return Array.from({ length: 5 }, (_, row) => groups
                     .map(group => [...group].map(digit => this.digit_rows(digit)[row]).join(' '))
                     .join('   ')).join('\n');
             }
-            day_submit(next) {
-                if (next === undefined)
+            show_result(next) {
+                if (next === undefined || !this.date_valid())
                     return null;
-                if (this.day_valid())
-                    this.step(2);
-                return null;
-            }
-            month_submit(next) {
-                if (next === undefined)
-                    return null;
-                if (this.month_valid())
-                    this.step(3);
-                return null;
-            }
-            year_submit(next) {
-                if (next === undefined)
-                    return null;
-                if (!this.date_valid())
-                    return null;
-                this.step(4);
-                console.log(this.result_text());
+                console.log(`Дата рождения: ${this.date_text()}`);
+                console.log(this.weekday_text());
                 console.log(this.leap_text());
                 console.log(this.age_text());
                 console.log(this.star_art());
                 return null;
             }
-            restart_click(next) {
-                if (next === undefined)
-                    return null;
-                this.day(Number.NaN);
-                this.month(Number.NaN);
-                this.year(Number.NaN);
-                this.step(1);
-                return null;
-            }
         }
         __decorate([
-            $mol_mem
-        ], $bog_birthdaycase_app.prototype, "content", null);
-        __decorate([
-            $mol_mem
-        ], $bog_birthdaycase_app.prototype, "day_submit", null);
-        __decorate([
-            $mol_mem
-        ], $bog_birthdaycase_app.prototype, "month_submit", null);
-        __decorate([
-            $mol_mem
-        ], $bog_birthdaycase_app.prototype, "year_submit", null);
-        __decorate([
-            $mol_mem
-        ], $bog_birthdaycase_app.prototype, "restart_click", null);
+            $mol_action
+        ], $bog_birthdaycase_app.prototype, "show_result", null);
         $$.$bog_birthdaycase_app = $bog_birthdaycase_app;
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));

@@ -4981,160 +4981,115 @@ declare namespace $ {
 		,
 		ReturnType< $mol_number['value_max'] >
 	>
-	type $mol_button_major__title_bog_birthdaycase_app_6 = $mol_type_enforce<
-		string
-		,
-		ReturnType< $mol_button_major['title'] >
-	>
-	type $mol_button_major__enabled_bog_birthdaycase_app_7 = $mol_type_enforce<
-		ReturnType< $bog_birthdaycase_app['day_valid'] >
-		,
-		ReturnType< $mol_button_major['enabled'] >
-	>
-	type $mol_button_major__click_bog_birthdaycase_app_8 = $mol_type_enforce<
-		ReturnType< $bog_birthdaycase_app['day_submit'] >
-		,
-		ReturnType< $mol_button_major['click'] >
-	>
-	type $mol_text__text_bog_birthdaycase_app_9 = $mol_type_enforce<
+	type $mol_text__text_bog_birthdaycase_app_6 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_text['text'] >
 	>
-	type $mol_number__value_bog_birthdaycase_app_10 = $mol_type_enforce<
+	type $mol_number__value_bog_birthdaycase_app_7 = $mol_type_enforce<
 		ReturnType< $bog_birthdaycase_app['month'] >
 		,
 		ReturnType< $mol_number['value'] >
 	>
-	type $mol_number__precision_bog_birthdaycase_app_11 = $mol_type_enforce<
+	type $mol_number__precision_bog_birthdaycase_app_8 = $mol_type_enforce<
 		number
 		,
 		ReturnType< $mol_number['precision'] >
 	>
-	type $mol_number__value_min_bog_birthdaycase_app_12 = $mol_type_enforce<
+	type $mol_number__value_min_bog_birthdaycase_app_9 = $mol_type_enforce<
 		number
 		,
 		ReturnType< $mol_number['value_min'] >
 	>
-	type $mol_number__value_max_bog_birthdaycase_app_13 = $mol_type_enforce<
+	type $mol_number__value_max_bog_birthdaycase_app_10 = $mol_type_enforce<
 		number
 		,
 		ReturnType< $mol_number['value_max'] >
 	>
-	type $mol_button_major__title_bog_birthdaycase_app_14 = $mol_type_enforce<
-		string
-		,
-		ReturnType< $mol_button_major['title'] >
-	>
-	type $mol_button_major__enabled_bog_birthdaycase_app_15 = $mol_type_enforce<
-		ReturnType< $bog_birthdaycase_app['month_valid'] >
-		,
-		ReturnType< $mol_button_major['enabled'] >
-	>
-	type $mol_button_major__click_bog_birthdaycase_app_16 = $mol_type_enforce<
-		ReturnType< $bog_birthdaycase_app['month_submit'] >
-		,
-		ReturnType< $mol_button_major['click'] >
-	>
-	type $mol_text__text_bog_birthdaycase_app_17 = $mol_type_enforce<
+	type $mol_text__text_bog_birthdaycase_app_11 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_text['text'] >
 	>
-	type $mol_number__value_bog_birthdaycase_app_18 = $mol_type_enforce<
+	type $mol_number__value_bog_birthdaycase_app_12 = $mol_type_enforce<
 		ReturnType< $bog_birthdaycase_app['year'] >
 		,
 		ReturnType< $mol_number['value'] >
 	>
-	type $mol_number__precision_bog_birthdaycase_app_19 = $mol_type_enforce<
+	type $mol_number__precision_bog_birthdaycase_app_13 = $mol_type_enforce<
 		number
 		,
 		ReturnType< $mol_number['precision'] >
 	>
-	type $mol_number__value_min_bog_birthdaycase_app_20 = $mol_type_enforce<
+	type $mol_number__value_min_bog_birthdaycase_app_14 = $mol_type_enforce<
 		number
 		,
 		ReturnType< $mol_number['value_min'] >
 	>
-	type $mol_number__value_max_bog_birthdaycase_app_21 = $mol_type_enforce<
+	type $mol_number__value_max_bog_birthdaycase_app_15 = $mol_type_enforce<
 		ReturnType< $bog_birthdaycase_app['year_max'] >
 		,
 		ReturnType< $mol_number['value_max'] >
 	>
-	type $mol_button_major__title_bog_birthdaycase_app_22 = $mol_type_enforce<
+	type $mol_button_major__title_bog_birthdaycase_app_16 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_button_major['title'] >
 	>
-	type $mol_button_major__enabled_bog_birthdaycase_app_23 = $mol_type_enforce<
+	type $mol_button_major__enabled_bog_birthdaycase_app_17 = $mol_type_enforce<
 		ReturnType< $bog_birthdaycase_app['date_valid'] >
 		,
 		ReturnType< $mol_button_major['enabled'] >
 	>
-	type $mol_button_major__click_bog_birthdaycase_app_24 = $mol_type_enforce<
-		ReturnType< $bog_birthdaycase_app['year_submit'] >
+	type $mol_button_major__click_bog_birthdaycase_app_18 = $mol_type_enforce<
+		ReturnType< $bog_birthdaycase_app['show_result'] >
 		,
 		ReturnType< $mol_button_major['click'] >
 	>
-	type $mol_text__text_bog_birthdaycase_app_25 = $mol_type_enforce<
-		ReturnType< $bog_birthdaycase_app['result_text'] >
+	type $mol_text__text_bog_birthdaycase_app_19 = $mol_type_enforce<
+		ReturnType< $bog_birthdaycase_app['weekday_text'] >
 		,
 		ReturnType< $mol_text['text'] >
 	>
-	type $mol_text__text_bog_birthdaycase_app_26 = $mol_type_enforce<
+	type $mol_text__text_bog_birthdaycase_app_20 = $mol_type_enforce<
 		ReturnType< $bog_birthdaycase_app['leap_text'] >
 		,
 		ReturnType< $mol_text['text'] >
 	>
-	type $mol_text__text_bog_birthdaycase_app_27 = $mol_type_enforce<
+	type $mol_text__text_bog_birthdaycase_app_21 = $mol_type_enforce<
 		ReturnType< $bog_birthdaycase_app['age_text'] >
 		,
 		ReturnType< $mol_text['text'] >
 	>
-	type $mol_text__text_bog_birthdaycase_app_28 = $mol_type_enforce<
+	type $mol_text__text_bog_birthdaycase_app_22 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_text['text'] >
 	>
-	type $mol_textarea__value_bog_birthdaycase_app_29 = $mol_type_enforce<
+	type $mol_textarea__value_bog_birthdaycase_app_23 = $mol_type_enforce<
 		ReturnType< $bog_birthdaycase_app['star_art'] >
 		,
 		ReturnType< $mol_textarea['value'] >
 	>
-	type $mol_textarea__enabled_bog_birthdaycase_app_30 = $mol_type_enforce<
+	type $mol_textarea__enabled_bog_birthdaycase_app_24 = $mol_type_enforce<
 		boolean
 		,
 		ReturnType< $mol_textarea['enabled'] >
 	>
-	type $mol_button_minor__title_bog_birthdaycase_app_31 = $mol_type_enforce<
-		string
-		,
-		ReturnType< $mol_button_minor['title'] >
-	>
-	type $mol_button_minor__click_bog_birthdaycase_app_32 = $mol_type_enforce<
-		ReturnType< $bog_birthdaycase_app['restart_click'] >
-		,
-		ReturnType< $mol_button_minor['click'] >
-	>
 	export class $bog_birthdaycase_app extends $mol_page {
-		content( ): readonly(any)[]
 		Day_title( ): $mol_text
 		day( next?: number ): number
 		Day_input( ): $mol_number
-		day_submit( next?: any ): any
-		Day_button( ): $mol_button_major
 		Month_title( ): $mol_text
 		month( next?: number ): number
 		Month_input( ): $mol_number
-		month_submit( next?: any ): any
-		Month_button( ): $mol_button_major
 		Year_title( ): $mol_text
 		year( next?: number ): number
 		Year_input( ): $mol_number
-		year_submit( next?: any ): any
-		Year_button( ): $mol_button_major
-		result_text( ): string
-		Result_info( ): $mol_text
+		show_result( next?: any ): any
+		Show_button( ): $mol_button_major
+		weekday_text( ): string
+		Weekday_info( ): $mol_text
 		leap_text( ): string
 		Leap_info( ): $mol_text
 		age_text( ): string
@@ -5142,19 +5097,10 @@ declare namespace $ {
 		Display_title( ): $mol_text
 		star_art( ): string
 		Star_display( ): $mol_textarea
-		restart_click( next?: any ): any
-		Restart_button( ): $mol_button_minor
 		title( ): string
-		body( ): ReturnType< $bog_birthdaycase_app['content'] >
-		step( next?: number ): number
-		day_valid( ): boolean
-		month_valid( ): boolean
 		year_max( ): number
 		date_valid( ): boolean
-		day_step( ): readonly(any)[]
-		month_step( ): readonly(any)[]
-		year_step( ): readonly(any)[]
-		result_step( ): readonly(any)[]
+		body( ): readonly(any)[]
 	}
 	
 }
@@ -5162,9 +5108,6 @@ declare namespace $ {
 //# sourceMappingURL=app.view.tree.d.ts.map
 declare namespace $.$$ {
     class $bog_birthdaycase_app extends $.$bog_birthdaycase_app {
-        content(): readonly any[];
-        day_valid(): boolean;
-        month_valid(): boolean;
         year_max(): number;
         birth_date(): Date;
         date_valid(): boolean;
@@ -5174,15 +5117,12 @@ declare namespace $.$$ {
         age(): number;
         age_word(): "лет" | "год" | "года";
         date_text(): string;
-        result_text(): string;
+        weekday_text(): string;
         leap_text(): string;
         age_text(): string;
         digit_rows(digit: string): string[];
         star_art(): string;
-        day_submit(next?: Event): null;
-        month_submit(next?: Event): null;
-        year_submit(next?: Event): null;
-        restart_click(next?: Event): null;
+        show_result(next?: Event): null;
     }
 }
 

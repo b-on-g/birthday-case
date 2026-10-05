@@ -714,24 +714,17 @@ $mol_text_list_item $mol_paragraph
 
 $bog_birthdaycase_app $mol_page
 	title @ \Кейс-задача № 2
-	body <= content /
-	step? 1
 	day? +NaN
 	month? +NaN
 	year? +NaN
-	day_valid false
-	month_valid false
 	year_max 0
 	date_valid false
-	result_text \
+	weekday_text \
 	leap_text \
 	age_text \
 	star_art \
-	day_submit? null
-	month_submit? null
-	year_submit? null
-	restart_click? null
-	day_step /
+	show_result? null
+	body /
 		<= Day_title $mol_text
 			text @ \Введите день рождения
 		<= Day_input $mol_number
@@ -739,11 +732,6 @@ $bog_birthdaycase_app $mol_page
 			precision 1
 			value_min 1
 			value_max 31
-		<= Day_button $mol_button_major
-			title @ \Далее
-			enabled <= day_valid
-			click? <=> day_submit? null
-	month_step /
 		<= Month_title $mol_text
 			text @ \Введите месяц рождения
 		<= Month_input $mol_number
@@ -751,11 +739,6 @@ $bog_birthdaycase_app $mol_page
 			precision 1
 			value_min 1
 			value_max 12
-		<= Month_button $mol_button_major
-			title @ \Далее
-			enabled <= month_valid
-			click? <=> month_submit? null
-	year_step /
 		<= Year_title $mol_text
 			text @ \Введите год рождения
 		<= Year_input $mol_number
@@ -763,13 +746,12 @@ $bog_birthdaycase_app $mol_page
 			precision 1
 			value_min 1
 			value_max <= year_max
-		<= Year_button $mol_button_major
+		<= Show_button $mol_button_major
 			title @ \Показать результат
 			enabled <= date_valid
-			click? <=> year_submit? null
-	result_step /
-		<= Result_info $mol_text
-			text <= result_text \
+			click? <=> show_result? null
+		<= Weekday_info $mol_text
+			text <= weekday_text \
 		<= Leap_info $mol_text
 			text <= leap_text \
 		<= Age_info $mol_text
@@ -779,6 +761,3 @@ $bog_birthdaycase_app $mol_page
 		<= Star_display $mol_textarea
 			value <= star_art \
 			enabled false
-		<= Restart_button $mol_button_minor
-			title @ \Ввести другую дату
-			click? <=> restart_click? null
