@@ -5,6 +5,18 @@ $bog_birthdaycase_app $mol_page
 	day? +NaN
 	month? +NaN
 	year? +NaN
+	day_valid false
+	month_valid false
+	year_max 0
+	date_valid false
+	result_text \
+	leap_text \
+	age_text \
+	star_art \
+	day_next? null
+	month_next? null
+	year_next? null
+	restart? null
 
 	Day_title $mol_text
 		text @ \Введите день рождения
