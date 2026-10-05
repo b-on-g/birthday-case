@@ -1,21 +1,17 @@
 namespace $ {
 	$mol_test({
-
-		'walk through birthday form with buttons'( $ ) {
+		'show all birthday results'( $ ) {
 			const app = $bog_birthdaycase_app.make({ $ })
 			app.day( 1 )
-			app.Day_button().click( new Event( 'click' ) )
-			$mol_assert_equal( app.step(), 2 )
 			app.month( 2 )
-			app.Month_button().click( new Event( 'click' ) )
-			$mol_assert_equal( app.step(), 3 )
 			app.year( 2003 )
-			app.Year_button().click( new Event( 'click' ) )
-			$mol_assert_equal( app.step(), 4 )
-			$mol_assert_ok( app.result_text().includes( 'суббота' ) )
-			$mol_assert_equal( app.content()[ 0 ], app.Result_info() )
+			$mol_assert_ok( app.Show_button().enabled() )
+			$mol_assert_ok( app.Weekday_info().text().includes( 'суббота' ) )
+			$mol_assert_ok( app.Leap_info().text().includes( 'нет' ) )
+			$mol_assert_ok( app.Age_info().text().includes( '23 года' ) )
+			$mol_assert_equal( app.Star_display().value().split( '\n' ).length, 5 )
+			app.Show_button().click( new Event( 'click' ) )
 		},
-
 		'validate leap day'( $ ) {
 			const app = $bog_birthdaycase_app.make({ $ })
 			app.day( 29 )
@@ -24,26 +20,15 @@ namespace $ {
 			$mol_assert_not( app.date_valid() )
 			app.year( 2000 )
 			$mol_assert_ok( app.date_valid() )
-			$mol_assert_ok( app.leap_text().includes( 'високосный' ) )
+			$mol_assert_ok( app.Leap_info().text().includes( 'да' ) )
 		},
-
-		'calculate current age'( $ ) {
+		'invalid date keeps outputs visible'( $ ) {
 			const app = $bog_birthdaycase_app.make({ $ })
-			app.day( 1 )
-			app.month( 1 )
-			app.year( 2000 )
-			$mol_assert_ok( app.age_text().includes( '26 лет' ) )
+			$mol_assert_not( app.Show_button().enabled() )
+			$mol_assert_equal( app.Weekday_info().text(), 'День недели: —' )
+			$mol_assert_equal( app.Leap_info().text(), 'Високосный год: —' )
+			$mol_assert_equal( app.Age_info().text(), 'Возраст: —' )
+			$mol_assert_equal( app.Star_display().value(), 'Введите корректную дату' )
 		},
-
-		'draw date with stars'( $ ) {
-			const app = $bog_birthdaycase_app.make({ $ })
-			app.day( 1 )
-			app.month( 2 )
-			app.year( 2003 )
-			const art = app.star_art()
-			$mol_assert_equal( art.split( '\n' ).length, 5 )
-			$mol_assert_ok( art.includes( '*' ) )
-		},
-
 	})
 }
