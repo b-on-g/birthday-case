@@ -17,7 +17,6 @@ $bog_birthdaycase_app $mol_page
 	month_submit? null
 	year_submit? null
 	restart_click? null
-
 	day_step /
 		<= Day_title $mol_text
 			text @ \Введите день рождения
@@ -30,7 +29,6 @@ $bog_birthdaycase_app $mol_page
 			title @ \Далее
 			enabled <= day_valid
 			click? <=> day_submit? null
-
 	month_step /
 		<= Month_title $mol_text
 			text @ \Введите месяц рождения
@@ -43,7 +41,6 @@ $bog_birthdaycase_app $mol_page
 			title @ \Далее
 			enabled <= month_valid
 			click? <=> month_submit? null
-
 	year_step /
 		<= Year_title $mol_text
 			text @ \Введите год рождения
@@ -56,7 +53,6 @@ $bog_birthdaycase_app $mol_page
 			title @ \Показать результат
 			enabled <= date_valid
 			click? <=> year_submit? null
-
 	result_step /
 		<= Result_info $mol_text
 			text <= result_text \
