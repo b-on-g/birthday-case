@@ -104,18 +104,21 @@ namespace $.$$ {
 				.join( '   ' )
 			).join( '\n' )
 		}
-		@$mol_action
-		override day_submit( _next?: Event ) {
+		@$mol_mem
+		override day_submit( next?: Event ) {
+			if( next === undefined ) return null
 			if( this.day_valid() ) this.step( 2 )
 			return null
 		}
-		@$mol_action
-		override month_submit( _next?: Event ) {
+		@$mol_mem
+		override month_submit( next?: Event ) {
+			if( next === undefined ) return null
 			if( this.month_valid() ) this.step( 3 )
 			return null
 		}
-		@$mol_action
-		override year_submit( _next?: Event ) {
+		@$mol_mem
+		override year_submit( next?: Event ) {
+			if( next === undefined ) return null
 			if( !this.date_valid() ) return null
 			this.step( 4 )
 			console.log( this.result_text() )
@@ -124,8 +127,9 @@ namespace $.$$ {
 			console.log( this.star_art() )
 			return null
 		}
-		@$mol_action
-		override restart_click( _next?: Event ) {
+		@$mol_mem
+		override restart_click( next?: Event ) {
+			if( next === undefined ) return null
 			this.day( Number.NaN )
 			this.month( Number.NaN )
 			this.year( Number.NaN )
