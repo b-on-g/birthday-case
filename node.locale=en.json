@@ -1,0 +1,13 @@
+{
+	"$bog_birthdaycase_app_Day_button_title": "Далее",
+	"$bog_birthdaycase_app_Day_title_text": "Введите день рождения",
+	"$bog_birthdaycase_app_Display_title_text": "Дата рождения на электронном табло",
+	"$bog_birthdaycase_app_Month_button_title": "Далее",
+	"$bog_birthdaycase_app_Month_title_text": "Введите месяц рождения",
+	"$bog_birthdaycase_app_Restart_button_title": "Ввести другую дату",
+	"$bog_birthdaycase_app_Year_button_title": "Показать результат",
+	"$bog_birthdaycase_app_Year_title_text": "Введите год рождения",
+	"$bog_birthdaycase_app_title": "Кейс-задача № 2",
+	"$mol_text_code_Copy_hint": "Copy whole code",
+	"$mol_text_header_Link_hint": "Permalink to this section"
+}
