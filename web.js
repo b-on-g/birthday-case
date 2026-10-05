@@ -11183,17 +11183,17 @@ var $;
                     .map(group => [...group].map(digit => this.digit_rows(digit)[row]).join(' '))
                     .join('   ')).join('\n');
             }
-            day_submit() {
+            day_submit(_next) {
                 if (this.day_valid())
                     this.step(2);
                 return null;
             }
-            month_submit() {
+            month_submit(_next) {
                 if (this.month_valid())
                     this.step(3);
                 return null;
             }
-            year_submit() {
+            year_submit(_next) {
                 if (!this.date_valid())
                     return null;
                 this.step(4);
@@ -11203,7 +11203,7 @@ var $;
                 console.log(this.star_art());
                 return null;
             }
-            restart_click() {
+            restart_click(_next) {
                 this.day(Number.NaN);
                 this.month(Number.NaN);
                 this.year(Number.NaN);
@@ -11211,6 +11211,9 @@ var $;
                 return null;
             }
         }
+        __decorate([
+            $mol_mem
+        ], $bog_birthdaycase_app.prototype, "content", null);
         __decorate([
             $mol_action
         ], $bog_birthdaycase_app.prototype, "day_submit", null);
